@@ -1,0 +1,191 @@
+Scenaios
+
+1.Added a new file then realized those changes are not needed  without doing git add ---- use git clean command for this (git clean -f)
+
+$ touch nov24.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 7
+-rw-r--r-- 1 QC 197121 29 Nov 24 22:56 demo.txt
+-rw-r--r-- 1 QC 197121 45 Nov 24 22:56 feature-1.txt
+-rw-r--r-- 1 QC 197121  2 Nov 24 22:56 file-fetch.txt
+-rw-r--r-- 1 QC 197121  7 Nov 24 22:56 git-pull.txt
+-rw-r--r-- 1 QC 197121  0 Nov 24 22:59 nov24.txt
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+-rw-r--r-- 1 QC 197121 65 Nov 24 22:56 release-tracker.txt
+-rw-r--r-- 1 QC 197121 16 Nov 24 22:56 sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git clean -f
+Removing nov24.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 7
+-rw-r--r-- 1 QC 197121 29 Nov 24 22:56 demo.txt
+-rw-r--r-- 1 QC 197121 45 Nov 24 22:56 feature-1.txt
+-rw-r--r-- 1 QC 197121  2 Nov 24 22:56 file-fetch.txt
+-rw-r--r-- 1 QC 197121  7 Nov 24 22:56 git-pull.txt
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+-rw-r--r-- 1 QC 197121 65 Nov 24 22:56 release-tracker.txt
+-rw-r--r-- 1 QC 197121 16 Nov 24 22:56 sample.txt
+
+2.Added a new directory then i realized those changes are not needed ---- we can git clean command (git clean -fd )
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ mkdir demo-dir
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 7
+-rw-r--r-- 1 QC 197121 29 Nov 24 22:56 demo.txt
+drwxr-xr-x 1 QC 197121  0 Nov 24 23:02 demo-dir/
+-rw-r--r-- 1 QC 197121 45 Nov 24 22:56 feature-1.txt
+-rw-r--r-- 1 QC 197121  2 Nov 24 22:56 file-fetch.txt
+-rw-r--r-- 1 QC 197121  7 Nov 24 22:56 git-pull.txt
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+-rw-r--r-- 1 QC 197121 65 Nov 24 22:56 release-tracker.txt
+-rw-r--r-- 1 QC 197121 16 Nov 24 22:56 sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git clean -fd
+Removing demo-dir/
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 7
+-rw-r--r-- 1 QC 197121 29 Nov 24 22:56 demo.txt
+-rw-r--r-- 1 QC 197121 45 Nov 24 22:56 feature-1.txt
+-rw-r--r-- 1 QC 197121  2 Nov 24 22:56 file-fetch.txt
+-rw-r--r-- 1 QC 197121  7 Nov 24 22:56 git-pull.txt
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+-rw-r--r-- 1 QC 197121 65 Nov 24 22:56 release-tracker.txt
+-rw-r--r-- 1 QC 197121 16 Nov 24 22:56 sample.txt
+
+mkdir -p Parent/folder1
+
+mkdir -p Parent/folder1/subfolder
+
+$ mkdir parent11
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 7
+-rw-r--r-- 1 QC 197121 29 Nov 24 22:56 demo.txt
+-rw-r--r-- 1 QC 197121 45 Nov 24 22:56 feature-1.txt
+-rw-r--r-- 1 QC 197121  2 Nov 24 22:56 file-fetch.txt
+-rw-r--r-- 1 QC 197121  7 Nov 24 22:56 git-pull.txt
+drwxr-xr-x 1 QC 197121  0 Nov 24 23:08 Parent/
+drwxr-xr-x 1 QC 197121  0 Nov 24 23:09 parent11/
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+-rw-r--r-- 1 QC 197121 65 Nov 24 22:56 release-tracker.txt
+-rw-r--r-- 1 QC 197121 16 Nov 24 22:56 sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git clean -fd
+Removing Parent/
+Removing parent11/
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 7
+-rw-r--r-- 1 QC 197121 29 Nov 24 22:56 demo.txt
+-rw-r--r-- 1 QC 197121 45 Nov 24 22:56 feature-1.txt
+-rw-r--r-- 1 QC 197121  2 Nov 24 22:56 file-fetch.txt
+-rw-r--r-- 1 QC 197121  7 Nov 24 22:56 git-pull.txt
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+-rw-r--r-- 1 QC 197121 65 Nov 24 22:56 release-tracker.txt
+-rw-r--r-- 1 QC 197121 16 Nov 24 22:56 sample.txt
+
+
+It wont be available for old files or modify the old files 
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ vi sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ cat sample.txt
+hello
+h r u
+gud mng
+
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git diff sample.txt
+diff --git a/sample.txt b/sample.txt
+index cbc250f..f57603e 100644
+--- a/sample.txt
++++ b/sample.txt
+@@ -1,3 +1,4 @@
+ hello
+ h r u
++gud mng
+
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git clean -fd
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ cat sample.txt
+hello
+h r u
+gud mng
+
+Still we can see content in sample.txt, and also it is not deleted if we use git clean command 
+
+in this case we have to use git checkout it will discard latest modifying data 
+
+$ git checkout -- sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ cat sample.txt
+hello
+h r u
+
+
+
+3.Added a new file , did git add  and then i realized those changes are not needed or Modified existing file and realized those changes are not needed (without git add if we modify existing file git clean wont work
+either for new file or existing file modifying we cant use git clean we will be using git checkout (git checkout -- checkout-demo.txt)
+
+vi checkout-demo.txt
+
+sample data added 
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git diff checkout-demo.txt
+warning: LF will be replaced by CRLF in checkout-demo.txt.
+The file will have its original line endings in your working directory
+diff --git a/checkout-demo.txt b/checkout-demo.txt
+index 082b71a..2f67d83 100644
+--- a/checkout-demo.txt
++++ b/checkout-demo.txt
+@@ -1,4 +1,5 @@
+ hello
+ hi
+ h ru
++sample data added
+
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git checkout -- checkout-demo.txt (if it is present in remote also content will be replaced with remote branch data , it discard the local file changes and replaced with remote branch data)
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ cat checkout-demo.txt
+hello
+hi
+h ru
+
+----------------------
+
+im doing some work there is some issue reported in production , i dont want to loose my current work , 
+i want to save the changes of current work and jump onto production issue and fix it , then come back and work.
+
+can i merge a single commit from one branch to another branch 
+
+lets say i have 4 commits , i dont want to merge entire branch out of 4 i want to merge only one commit from one branch to another branch 
+
+to achieve this we have to use git cherry pick
+
+
+
