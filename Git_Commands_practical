@@ -1,0 +1,1072 @@
+
+https://github.com/srinadhm?tab=repositories
+
+
+What is Devops
+Advantages of Devops
+Disadvantages of Devops
+Devops life cycle or Stages of devops
+Important devops tools
+Git 
+Advantages 
+what is version control system
+types of vcs
+centralised vcs
+distributed vcs
+Git work flow
+Repository
+Git commands
+1.git clone 
+git clone <repository_url>
+2.git checkout 
+3.git branch  and git branch -a
+4.how to create a branch ---- git branch feature-1 but it wont reflect in remote repository branches
+
+for that we need to push locally created branch to upstream
+switch to the feature branch and add files to local repository, commit and push to remote repository
+
+git add <files>
+
+git add feature-1.txt
+
+after adding commit the files with commit messages
+
+git status
+On branch feature-1
+Your branch is ahead of 'origin/feature-1' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+
+5.git push --set-upstream origin feature-1
+
+
+git config --global user.name "srinadhm"
+
+git config --global user.email "mupparajusrinadh@gmail.com" 
+
+git config --list
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Go to Credential Manager from Control Panel => Windows Credentials => find git:https://github.com => Edit => On Password replace with with your GitHub Personal Access Token => You are Done
+
+If you don’t find git:https://github.com => Click on Add a generic credential => Internet address will be git:https://github.com and you need to type in your username and password will be your GitHub Personal Access Token => Click Ok and you are done
+
+PAT token to connect to github  
+
+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
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+6.switch to the feature branch and add files to local repository, commit and push to remote repository
+
+git add <files>
+
+git add feature-1.txt
+
+after adding commit the files with commit messages
+
+git status
+On branch feature-1
+Your branch is ahead of 'origin/feature-1' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+7.once commit is done push the changes to remote repository 
+git push 
+
+
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 331 bytes | 55.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/srinadhm/devops-practise.git
+   ddf8f7e..e54ef38  feature-1 -> feature-1
+
+8.Now the changes are in feature branch , we need to merge the changes back to develop branch 
+
+for that we need to create pull request or merge request , once you create pull request someone will review the code , approve/decline the pull request changes
+
+base will be develop branch and compare will be feature-1 branch 
+
+most probably the approver will be lead who knows the end to end requirement of the project
+
+if the changes look good he will approve the change , merge the changes to develop branch 
+
+9.If latest changes present in remote we need to pull/update the changes in local branch as well
+
+git diff develop origin/develop
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/devops-practise (develop)
+$ git pull
+remote: Enumerating objects: 2, done.
+remote: Counting objects: 100% (2/2), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (2/2), 1.20 KiB | 43.00 KiB/s, done.
+From https://github.com/srinadhm/devops-practise
+   ddf8f7e..973a6d3  develop    -> origin/develop
+   ddf8f7e..43b6745  master     -> origin/master
+Updating ddf8f7e..973a6d3
+Fast-forward
+ feature-1.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 feature-1.txt
+
+
+
+git clone
+git checkout
+git branch --- to list branches in local 
+git branch -a or git branch -r to list branches in remote repo 
+git branch <branch_name>
+git add
+git commit 
+git status
+git diff 
+git pull
+git push
+how to delete a branch remote and locally
+git merge
+git pull v/s git fetch
+git pull v/s pull request v/s merge request 
+git log --oneline
+git reset <commit_id>
+git clean -fd (if we want to remove untracked files and directories)
+what is merge conflict 
+Conflicts generally arise when two people have changed the same lines in a file, or if one developer deleted a file while another developer was modifying it. In these cases, Git cannot automatically determine what is correct. Conflicts only affect the developer conducting the merge, the rest of the team is unaware of the conflict. Git will mark the file as being conflicted and halt the merging process. It is then the developers' responsibility to resolve the conflict.
+
+If developer1 and developer2 working on same files if both has different content in same file , merge conflicts will come we need to resolve those.
+
+how to resolve merge conflict
+
+developer1
+#############
+sample.txt
+#########
+this is done by developer1
+
+developer2
+##########
+sample.txt
+#########
+this is done by developer2
+
+when we try to merge conflicts will come for this file
+now who ever is lead for this project he will decide which changes are correct , he decided developer2 changes are correct 
+
+we can resolve conflicts by using tortoise git gui
+
+Repository : repository in git contains collections of files of different versions of a project
+these files are imported to the local repository of user , we can clone the repository to local machine 
+
+developer1 machine local server which have a repository called local repository
+
+Branch --- branch represents an independent line of development
+
+in repository we have branches
+
+all this came to track our files by version 
+
+
+branch is a version of repository
+
+There are 3 core areas in git
+1.Working tree/directory --- working tree is the area which you are currently working , also known as untracked  area of git 
+working tree or untracked area 
+2.Staging Area
+3.Local Repository
+
+Along with these there are 3 states for a file
+1.Modified --- Modified that you have changed the file but not committed yet
+2.Staged --- Staged means that you have marked modified file in its current version to go into your next commit
+3.Committed --- Committed means that the data is saved in your local drive
+
+Where we can store/save our data in remote via repository
+1.Github
+2.Bit bucket
+3.Gitlab
+4.Code commit
+5.Azure repos
+
+Github is a code hosting platform for version control and collabaration
+
+It lets us and other team members to work together on a project from any where.
+
+Github v/s Bitbucket 
+Github v/s Bitbucket pricing 
+
+Bitbucket allows users to have free repository and but with maximum number of 5 collaborators 
+
+Bitbucket has no feature for navigation 
+
+Github allows users to have private repos but with maximum of 4 collaborators
+
+Github allows users to navigate
+
+project-1
+---------
+1.april release work
+2.may release work
+
+
+
+Pull request means we are asking someone to review the changes and merge the changes into another branch
+Asking someone to merge feature-1 into develop or merge release-20211124 into master & develop
+
+Pull Request
+-----------
+It allows reviewing commits before merging into the main branch.Pull request is created when you committed a change in the GitHub Project, and you want it to be reviewed by other team members.You can commit the changes into a new branch or existing branch.
+ 
+
+git branch -d <local-branch> or git branch --delete <branch_name>
+git push origin --delete <remote-branch-name> remote
+
+git push or git push -u origin feature-1 or git push origin feature-1
+
+--------------------------
+1.Master Production code
+2.Develop Pre-Production code
+3.Feature New enhancements or requirements  or each individual work of developer can be achieved through feature branch and merged back to develop branch
+We cut down the feature branches from develop branch
+4.Release preparing release which includes all feature branch changes or all individual work of developers of feature branches are clubbed through release branch 
+and merged back to develop and master.we cut down the release  branch from develop branch
+5.Hotfix branch/patch fix/bugfix  Required immediate action on issues in production
+
+-------------------------------------------------------
+
+during development life cycle a variety of supporting branches will be created or used 
+feature-1
+feature-2
+feature-a
+feature-b
+feature-1 is created when finished with feature-1 work then this changes are sent to develop branch,
+now develop branch had feature-1 work.Now again when we start working feature-2 we will again create from develop
+developer1 finishes work first he will merge his changes develop branch
+developer2 worked on his changes , he will merge his changes to develop branch
+if developer1 and developer2 from two different branches work on same file when they are merging conflicts will come 
+we need to decide which developer changes have to push.
+branches are used to develop new features for the upcoming releases,feature branches will be created from develop branch 
+once the work is done they will be merged back to develop branch
+
+he made some changes and raise a pr
+
+4 files are there 
+
+but the approver didnt merged pr still the pr is open
+
+again he realised there are some mistakes, he modified some things and added some new changes.
+
+as long as pr in open state if he pushes the modifications again changes will be appended until the pull request is open   
+
+
+Release branch
+Hotfix branch
+
+release branch support preparation of a production release, they will allow minor bug to be fixed and preparation of data for a release
+
+release branch will be created from develop, and must merge back to develop and master 
+
+hotfix branches are needed to act immediately on issues in production, once it is delivered to customer during that if any issues come 
+hotfix branch is created from master, and merged back to master and develop after the development changes done
+
+In release branch some issues came
+
+1.We need to fix those issues, and update the changes back to develop and master 
+2.Assume by november1 we decided to create a release branch 
+3.Testing team started testing by November02 and raise the bugs by November03
+4.Now by November03 all the developer works for next release December is commited in develop
+now if you cut a branch again for release from develop you will get changes for next release which is not needed.
+5.Once fixing all the issues , testing will be resume once they will give sign off they only we can go ahead with the deployment and merge changes back to master and develop.
+6.We need to create a PR to merge back to develop & master the team lead or senior developer will address the changes and review 
+
+Comment
+Submit general feedback without explicit approval.
+
+Approve
+Submit feedback and approve merging these changes.
+
+Request changes
+Submit feedback that must be addressed before merging.
+
+
+---------------------------------------------------
+June Release
+-----------
+We need to support some extra payment gateway option
+we need to introduce some new messaging feature
+
+There will be 5 kinds of environment
+1.Development 
+2.QA/Test
+3.User Acceptance test UAT
+4.Perf
+5.Production
+
+Developing before raising a pr to the develop branch he will use jenkins machine to build is feature branch
+check all the unit test cases are passing or not , if they are not passing he will fix them
+
+If everything goes good in jenkins build , he will raise a pr.
+
+
+-----------------------------
+
+1.Create a new feature branch from develop branch
+2.Push a newly created feature branch to remote repository
+3.Checkout the feature branch
+4.Work on the new feature requirement changes 
+5.Add files to git using git add commands
+6.Commit the changes to git using git commit command git commit -m 'message'
+7.Push the changes to remote feature branch
+8.Now ultimately the feature branch changes should go to develop for this we need to raise a PR for code review and approval to merge to develop branch
+
+
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy (develop)
+$ git branch feature-2
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy (develop)
+$ git push --set-upstream origin feature-2
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'feature-2' on GitHub by visiting:
+remote:      https://github.com/srinadhm/git-branch-strategy/pull/new/feature-2
+remote:
+To https://github.com/srinadhm/git-branch-strategy.git
+ * [new branch]      feature-2 -> feature-2
+Branch 'feature-2' set up to track remote branch 'feature-2' from 'origin'.
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy (develop)
+$ git checkout feature-2
+Switched to branch 'feature-2'
+Your branch is up to date with 'origin/feature-2'.
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy (feature-2)
+$ git --delete feature-2
+unknown option: --delete
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy (feature-2)
+$ git branch --delete feature-2
+error: Cannot delete branch 'feature-2' checked out at 'E:/git_work/git-branch-strategy'
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy (feature-2)
+$ git push origin --delete feature-2
+To https://github.com/srinadhm/git-branch-strategy.git
+ - [deleted]         feature-2
+
+
+we cant delete a checked out branch  in local , but we can delete in remote
+
+------------------------------------------------------------------------------------------
+
+
+
+$ touch sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy (develop)
+$ git status
+On branch develop
+Your branch is up to date with 'origin/develop'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        sample.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+$ git add sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy (develop)
+$ git status'
+On branch develop
+Your branch is up to date with 'origin/develop'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   sample.txt
+
+
+git add sample.txt ---- add a new file to staging area 
+git commit -m 'added new file' --- adds staged changes to your local repository
+git push origin remote_branch ---- pushing changes from local repository changes to your hosting service or server 
+
+git diff ---- see the actual difference in code between your working area and staging area 
+
+If the repository is public we can clone the repo without any access 
+but if we want to push the data from local repo to remote repo he would be configuring username and email followed by entering gitbub credentials.
+sometimes if the repository is private ,directly we cant access that repository we will got 404 error, then someone might give access for those private repositories.
+
+How to unset/unconfigure username and email 
+
+git config --global --list
+git config --global user.email "mupparajusrinadh@gmail.com"
+git config --global user.name "srinadhm"
+
+git config --global --unset user.name
+git config --global --unset user.email
+
+-------------------
+
+Git_Git flow_Branching Strategy_22
+Git Introduction and git commands global config add commit push pull *****
+Git_Branching_Strategy_26
+Git_Branching_Strategy1_27  ******
+Git commands revert reset fetch pull ******
+Git commands rebase reset soft hard  and revert *****
+Git commands merge clean diff ******
+Git commands cherry pick tags ******
+
+reset and revert 
+fetch and pull
+rebase cherry pick tagging
+
+Scenario-1
+---------
+Im working on branch and modify some files , committed the file changes 
+later after commiting i realized those commits are not required 
+
+
+vi sample.txt
+hello
+added changes for next release
+:wq
+
+$ git add sample.txt
+warning: LF will be replaced by CRLF in sample.txt.
+The file will have its original line endings in your working directory
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git commit -m 'added changes to sample.txt'
+[feature-1 929bad6] added changes to sample.txt
+ 1 file changed, 1 insertion(+)
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git log --oneline
+929bad6 (HEAD -> feature-1) added changes to sample.txt (HEAD is at the latest commit)
+550fdbc (origin/feature-1) added sample.txt
+5ef031c Create demo.txt
+e54ef38 added feature-1.txt file
+ddf8f7e (origin/main, origin/HEAD, main) Create README.md
+
+i can revert the commit id which i made 
+
+929bad6 (HEAD -> feature-1) added changes to sample.txt
+
+or i can reset to the previous commit where ever i want or if we want to go to certain commitid  
+
+if you try to do a revert there will be some extra commit for the commit operation 
+
+##################
+
+
+$ git revert 929bad6
+[feature-1 addd97d] Revert "added changes to sample.txt"
+ 1 file changed, 1 deletion(-)
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ cat sample.txt
+hello
+h r u
+
+
+$ git log --oneline
+addd97d (HEAD -> feature-1) Revert "added changes to sample.txt"
+929bad6 added changes to sample.txt
+550fdbc (origin/feature-1) added sample.txt
+5ef031c Create demo.txt
+e54ef38 added feature-1.txt file
+ddf8f7e (origin/main, origin/HEAD, main) Create README.md
+
+one more commit is added to the commit history after revert command 
+
+we can revert back the old changes with the same approach
+
+$ git revert addd97d
+[feature-1 6b833a8] Revert "Revert "added changes to sample.txt""
+ 1 file changed, 1 insertion(+)
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ cat sample.txt
+hello
+h r u
+this is new code for next release
+
+$ git log --oneline
+6b833a8 (HEAD -> feature-1) Revert "Revert "added changes to sample.txt""
+addd97d Revert "added changes to sample.txt"
+929bad6 added changes to sample.txt
+550fdbc (origin/feature-1) added sample.txt
+5ef031c Create demo.txt
+e54ef38 added feature-1.txt file
+ddf8f7e (origin/main, origin/HEAD, main) Create README.md
+
+On top of revert changes again one more commit id added ' Revert "Revert "added changes to sample.txt"
+
+###############
+changes are wont be reverted but it will head or map to certian commit id 
+
+$ git log --oneline
+6b833a8 (HEAD -> feature-1) Revert "Revert "added changes to sample.txt""
+addd97d Revert "added changes to sample.txt"
+929bad6 added changes to sample.txt
+550fdbc (origin/feature-1) added sample.txt
+5ef031c Create demo.txt
+e54ef38 added feature-1.txt file
+ddf8f7e (origin/main, origin/HEAD, main) Create README.md
+
+6b833a8,addd97d,929bad6 these commit ids will be disappeared if we use revert new commid will be created if we use it will map to certain commit id will be disappear in log history but data in file changes will be there  this is soft reset 
+
+It will lost the future commits or recent commits if we use reset on old commits 
+
+$ git reset 550fdbc
+Unstaged changes after reset:
+M       sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ cat sample.txt
+hello
+h r u
+this is new code for next release
+
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git log --oneline
+550fdbc (HEAD -> feature-1, origin/feature-1) added sample.txt
+5ef031c Create demo.txt
+e54ef38 added feature-1.txt file
+ddf8f7e (origin/main, origin/HEAD, main) Create README.md
+
+$ git reset --hard 550fdbc
+HEAD is now at 550fdbc added sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git log --oneline
+550fdbc (HEAD -> feature-1, origin/feature-1) added sample.txt
+5ef031c Create demo.txt
+e54ef38 added feature-1.txt file
+ddf8f7e (origin/main, origin/HEAD, main) Create README.md
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ cat sample.txt
+hello
+h r u
+
+if we want to delete future commits but changes in files are there  if we use reset , changes wont be deleted with reset we have to hard to discard the changes 
+
+git reset --hard 550fdbc
+
+1.one is i need some changes but i dont want the commit git reset --soft <commit_id>
+2.i dont need any changes git reset --hard <commit_id> 
+
+I have a file 
+
+I made 100 changes in the file
+
+file1
+file2
+file3
+
+By mistake i made a commit
+Now i dont want to loose my changes again if i do git reset --hard --- changes will be gone 
+Now what ever the commit i made i dont want that commit id in history but still i need the file changes so that i can correct what ever is not needed.
+
+
+#######################
+1.Added data 
+$ cat demo.txt
+hello
+how is the day today
+changing the data
+changing the data
+
+$ cat sample.txt
+hello
+h r u
+changing the data
+changing the data
+
+2.Commit 
+
+git commit -am 'committed files by mistake'
+
+
+3.Check log history
+
+git log --oneline
+f4b9bf8 (HEAD -> feature-1) committed files by mistake
+550fdbc (origin/feature-1) added sample.txt
+5ef031c Create demo.txt
+e54ef38 added feature-1.txt file
+ddf8f7e (origin/main, origin/HEAD, main) Create README.md
+
+4.Removing committed files by mistake commit id but data wont be discard 
+$ git reset --soft 550fdbc
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+5.Check log history commit id removed 
+$ git log --oneline
+550fdbc (HEAD -> feature-1, origin/feature-1) added sample.txt
+5ef031c Create demo.txt
+e54ef38 added feature-1.txt file
+ddf8f7e (origin/main, origin/HEAD, main) Create README.md
+
+6.Check the content 
+$ cat demo.txt
+hello
+how is the day today
+changing the data
+changing the data
+
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ cat sample.txt
+hello
+h r u
+changing the data
+changing the data
+
+7.Use reset with hard now the data will be removed as well
+$ git reset --hard 550fdbc
+HEAD is now at 550fdbc added sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+
+8.Check the content now added content will be disappeared
+$ cat demo.txt
+hello
+how is the day today
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ cat sample.txt
+hello
+h r u
+
+
+
+$ git reset --hard ddf8f7e
+HEAD is now at ddf8f7e Create README.md
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git log --oneline
+ddf8f7e (HEAD -> feature-1, origin/main, origin/HEAD, main) Create README.md
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 1
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+
+
+######################
+a.txt
+b.txt
+
+instead of making changes in a.txt developer understood wrongly and made changes in b.txt
+
+
+####################################
+pull fetch
+
+In local after reset with --hard we have only README.md file but in remote we have (README.md,demo.txt,feature-1.txt,sample.txt)
+
+now if you want to get changes from remote branch to local branch we can use git fetch command 
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 1
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git fetch
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 1
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git log --oneline
+ddf8f7e (HEAD -> feature-1, origin/main, origin/HEAD, main) Create README.md
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git merge
+Updating ddf8f7e..550fdbc
+Fast-forward
+ demo.txt      | 2 ++
+ feature-1.txt | 3 +++
+ sample.txt    | 3 +++
+ 3 files changed, 8 insertions(+)
+ create mode 100644 demo.txt
+ create mode 100644 feature-1.txt
+ create mode 100644 sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 4
+-rw-r--r-- 1 QC 197121 29 Nov 24 16:32 demo.txt
+-rw-r--r-- 1 QC 197121 45 Nov 24 16:32 feature-1.txt
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+-rw-r--r-- 1 QC 197121 16 Nov 24 16:32 sample.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git log --oneline
+550fdbc (HEAD -> feature-1, origin/feature-1) added sample.txt
+5ef031c Create demo.txt
+e54ef38 added feature-1.txt file
+ddf8f7e (origin/main, origin/HEAD, main) Create README.md
+
+
+
+
+git pull = git fetch + git merge
+
+git fetch is the command that tells your local git to retrieve the latest meta-data info from the original 
+(yet doesnt do any file tranferring its more like just checking to see if there are any changes available.)
+
+git pull on the other hand does that AND brings (copy) those changes from the remote repository
+
+git log feature-1 origin/feature-1
+
+git show daf19b0c6572112531ba20ffac2d4e7bcabd7147
+
+commit daf19b0c6572112531ba20ffac2d4e7bcabd7147 (origin/feature-1)
+Author: srinadhm <30432794+srinadhm@users.noreply.github.com>
+Date:   Wed Nov 24 16:46:58 2021 +0530
+
+    Create file-fetch.txt
+
+diff --git a/file-fetch.txt b/file-fetch.txt
+new file mode 100644
+index 0000000..8b13789
+--- /dev/null
++++ b/file-fetch.txt
+@@ -0,0 +1 @@
+
+create a file in remote git-pull.txt and save 
+
+ git log feature-1 origin/feature-1
+commit daf19b0c6572112531ba20ffac2d4e7bcabd7147 (origin/feature-1)
+Author: srinadhm <30432794+srinadhm@users.noreply.github.com>
+Date:   Wed Nov 24 16:46:58 2021 +0530
+
+    Create file-fetch.txt
+
+commit 38d8a203212cab54c174d412ddb3de028fb2a8a6 (HEAD -> feature-1)
+Author: srinadhm <30432794+srinadhm@users.noreply.github.com>
+Date:   Wed Nov 24 16:34:11 2021 +0530
+
+    Create release-tracker.txt
+
+commit 550fdbc91e7a0b9051a910254a43c0196ca980b1
+Author: srinadhm <mupparajusrinadh@gmail.com>
+Date:   Wed Nov 24 12:55:15 2021 +0530
+
+    added sample.txt
+
+commit 5ef031c19f2c29355a310ae1de95e60eac9fd72e
+Author: srinadhm <30432794+srinadhm@users.noreply.github.com>
+Date:   Wed Nov 24 12:51:31 2021 +0530
+
+    Create demo.txt
+
+commit e54ef38ff68e7081a9b3c57ad0bb52540d14c356
+Author: srinadhm <mupparajusrinadh@gmail.com>
+Date:   Tue Nov 23 15:17:53 2021 +0530
+
+    added feature-1.txt file
+
+commit ddf8f7eceef26953e881a745701f5188cca92184 (origin/main, origin/HEAD, main)
+Author: srinadhm <30432794+srinadhm@users.noreply.github.com>
+Date:   Tue Nov 23 13:36:26 2021 +0530
+
+    Create README.md
+
+if we use git log with local and remote we wont see git-pull.txt file in local , we need to use fetch then only it will saved to local 
+
+ git fetch
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 654 bytes | 20.00 KiB/s, done.
+From https://github.com/srinadhm/devops-practise
+   daf19b0..9f69944  feature-1  -> origin/feature-1
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git log feature-1 origin/feature-1
+commit 9f6994404c9786286e46922e507d5881edfa39da (origin/feature-1)
+Author: srinadhm <30432794+srinadhm@users.noreply.github.com>
+Date:   Wed Nov 24 17:39:51 2021 +0530
+
+    Create git-pull.txt
+
+commit daf19b0c6572112531ba20ffac2d4e7bcabd7147
+Author: srinadhm <30432794+srinadhm@users.noreply.github.com>
+Date:   Wed Nov 24 16:46:58 2021 +0530
+
+    Create file-fetch.txt
+
+commit 38d8a203212cab54c174d412ddb3de028fb2a8a6 (HEAD -> feature-1)
+Author: srinadhm <30432794+srinadhm@users.noreply.github.com>
+Date:   Wed Nov 24 16:34:11 2021 +0530
+
+    Create release-tracker.txt
+
+commit 550fdbc91e7a0b9051a910254a43c0196ca980b1
+Author: srinadhm <mupparajusrinadh@gmail.com>
+Date:   Wed Nov 24 12:55:15 2021 +0530
+
+    added sample.txt
+
+commit 5ef031c19f2c29355a310ae1de95e60eac9fd72e
+Author: srinadhm <30432794+srinadhm@users.noreply.github.com>
+Date:   Wed Nov 24 12:51:31 2021 +0530
+
+    Create demo.txt
+
+commit e54ef38ff68e7081a9b3c57ad0bb52540d14c356
+Author: srinadhm <mupparajusrinadh@gmail.com>
+Date:   Tue Nov 23 15:17:53 2021 +0530
+
+    added feature-1.txt file
+
+commit ddf8f7eceef26953e881a745701f5188cca92184 (origin/main, origin/HEAD, main)
+Author: srinadhm <30432794+srinadhm@users.noreply.github.com>
+Date:   Tue Nov 23 13:36:26 2021 +0530
+
+    Create README.md
+
+git fetch update the latest meta-data info from the original to see the changes we have to use git log 
+
+##################################################
+if we need to perform both operations git fetch and git merge we can use git pull
+
+ git pull
+Updating 38d8a20..9f69944
+Fast-forward
+ file-fetch.txt | 1 +
+ git-pull.txt   | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file-fetch.txt
+ create mode 100644 git-pull.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ ll
+total 7
+-rw-r--r-- 1 QC 197121 29 Nov 24 16:32 demo.txt
+-rw-r--r-- 1 QC 197121 45 Nov 24 16:32 feature-1.txt
+-rw-r--r-- 1 QC 197121  2 Nov 24 17:45 file-fetch.txt
+-rw-r--r-- 1 QC 197121  7 Nov 24 17:45 git-pull.txt
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+-rw-r--r-- 1 QC 197121 65 Nov 24 16:39 release-tracker.txt
+-rw-r--r-- 1 QC 197121 16 Nov 24 16:32 sample.txt
+
+git-pull.txt and release-tracker.txt files added in remote branch when we use git pull it is updated latest meta-data info from the original 
+and merge/update changes from remote repository to local branch.
+
+git remote -v
+origin  https://github.com/srinadhm/devops-practise.git (fetch)
+origin  https://github.com/srinadhm/devops-practise.git (push)
+
+If we want to use github in company instead of working/operating on company repositories we have to disable proxy server & disable vpn
+
+-------------------------------------------------------------------------------------------
+
+how to create merge conflict and how to resolve merge conflicts
+
+#!/bin/bash
+mkdir git-repo
+cd git-repo
+git init
+touch my_code.sh
+git add my_code.sh
+echo "echo Hello" > my_code.sh
+git commit -am 'initial'
+git checkout -b new_branch
+echo "echo \"Hello World\"" > my_code.sh
+git commit -am 'first commit on new_branch'
+git checkout master
+echo "echo \"Hello World!\"" > my_code.sh
+git commit -am 'second commit on master'
+git merge new_branch
+  
+Conflicts generally arise when two people have changed the same lines in a file, or if one developer deleted a file while another developer was modifying it. In these cases, Git cannot automatically determine what is correct. Conflicts only affect the developer conducting the merge, the rest of the team is unaware of the conflict. Git will mark the file as being conflicted and halt the merging process. It is then the developers' responsibility to resolve the conflict.
+
+Developer has to decide which changes has to keep 
+
+
+Scenario-1
+
+before taking pull from remote repository if we are making changes on same file with different content in the local it will lead to merge conflict
+
+Scenario-2 
+
+Develop branch i have 
+
+file1.txt 
+
+this is file one from develop branch
+
+Master branch i have 
+
+file1.txt
+
+this is file one from master branch
+
+As we have same files in different branches with different content when we try to merge to master branch , merge conflicts will come 
+it would be developer responsibility who is doing the merge need to take a decision which changes has to keep or which content has to be added and after that it will be marked as resolved.
+
+############################################################
+
+$ git add file1.txt
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (develop)
+$ ll
+total 3
+-rw-r--r-- 1 QC 197121 45 Nov 24 18:16 feature-1.txt
+-rw-r--r-- 1 QC 197121 38 Nov 24 20:16 file1.txt
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (develop)
+$ git commit -m 'first commit on develop branch'
+[develop 0ccc751] first commit on develop branch
+ 1 file changed, 2 insertions(+)
+ create mode 100644 file1.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (develop)
+$ git checkout master
+Switched to a new branch 'master'
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (master)
+$ vi file1.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (master)
+$ git commit -am 'second commit on master'
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (master)
+$ git add file1.txt
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (master)
+$ git commit -m 'second commit on master'
+[master 6f30574] second commit on master
+ 1 file changed, 2 insertions(+)
+ create mode 100644 file1.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (master)
+$ git merge develop
+CONFLICT (add/add): Merge conflict in file1.txt
+Auto-merging file1.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+--------------------------------------------------------------------
+
+line1 from developer1   line1 from developer2      ---- while resolving conflict decided  ---> developer1 change is good
+line2 from developer1   line1 from developer2      ---- while resolving conflict decided  ---> developer1 change looks good and needed
+line3 from developer1   line3 from developer2      ---- while resolving conflict decided
+
+
+After resolving conflicts using TortoiseGit 
+
+$ git merge develop
+fatal: You have not concluded your merge (MERGE_HEAD exists).
+Please, commit your changes before you merge.
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (master|MERGING)
+$ git commit -am 'resolved merge conflicts'
+[master 00d8e8f] resolved merge conflicts
+
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (master)
+$ cat file1.txt
+this is file one from develop branch
+
+$ git push origin master
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (7/7), 736 bytes | 184.00 KiB/s, done.
+Total 7 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/srinadhm/devops-practise.git
+   43b6745..00d8e8f  master -> master
+
+---------------
+git add file1.txt
+
+git commit -m 'added new file'
+
+
+if we modify/update any changes  in existing file no need to add separately directly we can add with commit message itself
+
+git commit -am 'updated file1.txt
+
+ 
+---------------------
+created file1.txt in remote repository 
+
+file1.txt
+this is file one from main branch
+
+
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (main)
+$ git pull
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 684 bytes | 19.00 KiB/s, done.
+From https://github.com/srinadhm/devops-practise
+   ddf8f7e..fd416b8  main       -> origin/main
+Updating ddf8f7e..fd416b8
+Fast-forward
+ file1.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (main)
+$ git diff origin develop
+diff --git a/feature-1.txt b/feature-1.txt
+new file mode 100644
+index 0000000..3d2d6b8
+--- /dev/null
++++ b/feature-1.txt
+@@ -0,0 +1,3 @@
++hello h r u
++what is your planning today
++
+diff --git a/file1.txt b/file1.txt
+index 15571b7..3030ef2 100644
+--- a/file1.txt
++++ b/file1.txt
+@@ -1 +1,2 @@
+-this is file one from main branch
++this is file one from develop branch
++
+
