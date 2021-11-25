@@ -187,5 +187,115 @@ lets say i have 4 commits , i dont want to merge entire branch out of 4 i want t
 
 to achieve this we have to use git cherry pick
 
+Cherrypick 
 
+Im working on multiple branches in each branch there might be having n number of commits.
+But i dont want to merge branch instead i want to merge a particular commit id 
+
+
+branch-1
+
+commit-1
+commit-2
+commit-3
+
+branch2
+
+when i merge branch1 with branch2 all the 3 commit changes come.
+
+but due to some reasons i dont want all the 3 commits i want only a selected out of those 3 commits. 
+
+In this scenario created sample.txt from develop branch and committed that change to feature-1 branch without merge , by using cherry-pick command
+
+----------------------------------
+
+git checkout feature-1
+
+touch ab.txt
+git add ab.txt
+git commit -m 'ab.txt first commit'
+
+touch bc.txt
+git add bc.txt
+git commit -m 'bc.txt second commit'
+
+$ git log --oneline
+e786341 (HEAD -> feature-1) bc.txt second commit
+e9b9e61 ab.txt first commit
+52dc1f2 (origin/feature-1) added sample.txt
+7552eb8 added paymentgateway class on fourth commit
+a619e81 added c.txt file on third   commit
+66aae41 added b.txt file on second  commit
+21b2ef9 added a.txt file on first commit
+aec594f added text files
+0a87382 Revert "added sample.txt"
+9f69944 Create git-pull.txt
+daf19b0 Create file-fetch.txt
+38d8a20 Create release-tracker.txt
+550fdbc added sample.txt
+5ef031c Create demo.txt
+e54ef38 added feature-1.txt file
+ddf8f7e Create README.md
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (feature-1)
+$ git checkout develop
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (develop)
+$ git cherry-pick e9b9e61 e786341
+[develop 53f5a5b] ab.txt first commit
+ Date: Thu Nov 25 10:16:34 2021 +0530
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 ab.txt
+[develop bcc2aed] bc.txt second commit
+ Date: Thu Nov 25 10:16:53 2021 +0530
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 bc.txt
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise (develop)
+$ ll
+total 7
+-rw-r--r-- 1 QC 197121  0 Nov 25 08:33 a.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 10:18 ab.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 08:31 b.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 10:18 bc.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 08:33 c.txt
+-rw-r--r-- 1 QC 197121 68 Nov 25 08:33 demo.txt
+-rw-r--r-- 1 QC 197121 45 Nov 24 22:56 feature-1.txt
+-rw-r--r-- 1 QC 197121 40 Nov 25 10:17 file1.txt
+-rw-r--r-- 1 QC 197121  2 Nov 25 08:33 file-fetch.txt
+-rw-r--r-- 1 QC 197121  7 Nov 25 08:33 git-pull.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 08:28 PaymentGateway.java
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+-rw-r--r-- 1 QC 197121 65 Nov 25 08:33 release-tracker.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 08:37 sample.txt
+
+
+$ git log --oneline
+bcc2aed (HEAD -> develop) bc.txt second commit
+53f5a5b ab.txt first commit
+2b1542a (origin/develop) added sample.txt
+c931b79 Merge branch 'feature-1' into develop
+9dad042 added b.txt file on second  commit
+ee2ac9b added a.txt file on first commit
+09ebf2b added c.txt file on third   commit
+0c7c78c added paymentgateway class on fourth commit
+7552eb8 added paymentgateway class on fourth commit
+a619e81 added c.txt file on third   commit
+66aae41 added b.txt file on second  commit
+21b2ef9 added a.txt file on first commit
+aec594f added text files
+0a87382 Revert "added sample.txt"
+0ccc751 first commit on develop branch
+9f69944 Create git-pull.txt
+daf19b0 Create file-fetch.txt
+38d8a20 Create release-tracker.txt
+550fdbc added sample.txt
+5ef031c Create demo.txt
+973a6d3 Merge pull request #1 from srinadhm/feature-1
+e54ef38 added feature-1.txt file
+ddf8f7e Create README.md
+
+##########################################
 
