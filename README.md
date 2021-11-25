@@ -41,6 +41,11 @@ https://www.educba.com/git-commands/
 
 https://acompiler.com/git-commands/
 
+https://devconnected.com/how-to-checkout-git-tags/
 
 
+https://www.javatpoint.com/git-tags
 
+https://www.tutorialspoint.com/git/git_tag_operation.htm
+
+https://www.atlassian.com/git/tutorials/cherry-pick
