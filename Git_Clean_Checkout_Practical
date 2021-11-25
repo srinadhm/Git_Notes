@@ -299,3 +299,88 @@ ddf8f7e Create README.md
 
 ##########################################
 
+ 
+
+Tagging 
+
+Tags : Tag operation allows giving meaningful names to a specific version in the repository.
+
+When you want to release something to external world or customers we will be using tagging concepts as well.
+
+Vendor1 is asking for one feature
+Vendor2 is asking for another feature
+my product is same in one of the flow someone is asking one payment gateway and another one asking some other payment gateway 
+
+In this case we will deliver release tags and deliver to customers with 2 different release instead of exposing branches.
+tag is the best one if we release some features for the external world 
+
+from which branch we created tag and pushed in that particular branch tag is created, and all the files in that branch files will be stored as zip format.
+
+Most probably for every release we will create a release tag so that we can refer those changes because branch is always keep on changing.For every requirement we will create a release tag with the features we delivered as part of that release , next release with new features will create a new release tag. 
+
+1.Creating a tag with including message or without message 
+git tag -a 'Release_1_0' -m 'Tagged basic string operation code' HEAD
+
+git tag future_release
+
+
+2.List the tags 
+$ git tag --list or git tag -l 
+Release_1_0
+future_release
+
+3.Delete the tags 
+git tag --delete future_release or git tag -d future_release
+Deleted tag 'future_release' (was bcc2aed)
+
+$ git tag --list
+Release_1_0
+
+4.Push the tag to remote 
+$ git push origin tag Release_1_0
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 183 bytes | 26.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/srinadhm/devops-practise.git
+ * [new tag]         Release_1_0 -> Release_1_0
+
+ 
+$ git checkout tags/Release_1_0
+Note: switching to 'tags/Release_1_0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at bcc2aed bc.txt second commit
+
+QC@DESKTOP-GCQ5BN1 MINGW64 /e/git_work/git-branch-strategy/devops-practise ((Release_1_0))
+$ ll
+total 7
+-rw-r--r-- 1 QC 197121  0 Nov 25 11:03 a.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 11:03 ab.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 11:03 b.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 11:03 bc.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 11:03 c.txt
+-rw-r--r-- 1 QC 197121 68 Nov 25 11:03 demo.txt
+-rw-r--r-- 1 QC 197121 45 Nov 24 22:56 feature-1.txt
+-rw-r--r-- 1 QC 197121 40 Nov 25 10:17 file1.txt
+-rw-r--r-- 1 QC 197121  2 Nov 25 11:03 file-fetch.txt
+-rw-r--r-- 1 QC 197121  7 Nov 25 11:03 git-pull.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 11:03 PaymentGateway.java
+-rw-r--r-- 1 QC 197121 19 Nov 24 12:49 README.md
+-rw-r--r-- 1 QC 197121 65 Nov 25 11:03 release-tracker.txt
+-rw-r--r-- 1 QC 197121  0 Nov 25 11:03 sample.txt
+
